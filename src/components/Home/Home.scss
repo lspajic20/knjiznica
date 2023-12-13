@@ -1,0 +1,65 @@
+/* Dodaj ove promjene u existing kod */
+.home {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(70%); /* Tamnjenje slike */
+    }
+  
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      color: white; /* Boja teksta */
+      z-index: 1;
+    }
+  
+    &__title {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: 1px;
+      max-width: 90%;
+      margin: 0 auto;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  
+    @media screen and (max-width: 768px) {
+      &__title {
+        font-size: 32px; /* Prilagodba za manje ekrane */
+      }
+    }
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: var(--color-primary-dark);
+    color: var(--color-secondary);
+  }
+  
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .footer__content {
+    margin: auto;
+    text-align: center;
+  }
+  
+  .footer__copyright {
+    font-size: 12px;
+    font-weight: 300;
+  }
+  

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+$color-text-tertiary: #333; /* Nova varijabla za boju navigacije */
+:root {
+    --font-primary: "Rethink Sans", sans-serif;
+    --color-primary: #bf3939;
+    --color-primary-dark: #8a2828;
+    --color-secondary: #ffffff;
+    --color-black: #000000;
+    --color-bg-primary: #f8f9fa;
+    --color-bg-secondary: #ffffff;
+    --color-text-primary: #151e28;
+    --color-text-secondary: #6c757d;
+}
+
+    $font-primary: "Rethink Sans", sans-serif;
+    $color-primary: #bf3939;
+    $color-primary-dark: #8a2828;
+    $color-secondary: #ffffff;
+    $color-black: #000000;
+    $color-bg-primary: #f8f9fa;
+    $color-bg-secondary: #ffffff;
+    $color-text-primary: #151e28;
+    $color-text-secondary: #6c757d;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    font-family: $font-primary;
+    color: $color-text-primary;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}

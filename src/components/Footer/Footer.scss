@@ -1,0 +1,26 @@
+@import '../../index.scss';
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px; /* Promijenjena visina crvene trake */
+  width: 100%;
+  background-color: var(--color-primary-dark);
+  color: var(--color-secondary);
+}
+
+.Footer-Inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.Footer-Content {
+  margin: auto; 
+  text-align: center;
+}
+
+.Footer-Copyright {
+  font-size: 12px;
+  font-weight: 300;
+}
