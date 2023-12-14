@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.scss';
 import HomeImg from '../../assets/images/books.jpg';
+import BookSearch from '../BookSearch'; // Promijenite putanju prema lokaciji BookSearch.jsx
 
 const Home = () => {
   return (
@@ -9,12 +10,7 @@ const Home = () => {
       <div className="home__text">
         <h1 className="home__title">Online knjižnica</h1>
         <div className="home__search">
-          <input
-            type="text"
-            placeholder="Pretraži knjige..."
-            className="home__search-input"
-          />
-          <button className="home__search-button">Pretraži</button>
+          <BookSearch />
         </div>
       </div>
     </section>
