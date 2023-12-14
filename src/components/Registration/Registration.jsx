@@ -22,6 +22,20 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { password, confirmPassword } = formData;
+
+  // Provjera valjanosti lozinke prije slanja podataka
+  if (!validatePassword(password)) {
+    // Logika ako lozinka nije valjana
+    console.error('Lozinka nije valjana.');
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    // Logika ako lozinke nisu iste
+    console.error('Lozinke se ne podudaraju.');
+    return;
+  }
     console.log(formData);
     //back
     navigate('/');
