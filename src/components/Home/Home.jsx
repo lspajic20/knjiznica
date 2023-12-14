@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.scss';
 import HomeImg from '../../assets/images/books.jpg';
-import BookSearch from '../BookSearch'; // Promijenite putanju prema lokaciji BookSearch.jsx
+import BookSearch from '../BookSearch'; 
 
 const Home = () => {
   return (

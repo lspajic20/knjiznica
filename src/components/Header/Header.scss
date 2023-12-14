@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #c586839f; /* Svetlo crvena boja za zaglavlje */
+    /*background-color: #c586839f; */
     z-index: 1000;
   
     &__inner {
@@ -41,6 +41,7 @@
       margin-right: 32px;
       line-height: 80px;
       transition: color 0.3s ease-out;
+      color: white;
     }
   }
   

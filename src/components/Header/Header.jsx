@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import { Link } from 'react-router-dom'; // Dodajte ovaj import ako koristite React Router
+import { Link } from 'react-router-dom'; 
 
 const Header = () => {
   return (

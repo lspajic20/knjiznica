@@ -15,9 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/loginform" element={<LoginForm/>} />
-        {/* Dodajte ostale rute ako ih imate */}
       </Routes>
-      <Footer /> {/* Dodali smo Footer komponentu na dno */}
+      <Footer />
     </Router>
   );
 };

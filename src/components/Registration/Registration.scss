@@ -3,17 +3,18 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../../assets/images/books.jpg'); /* Zamijenite 'putanja/do/slike/knjige.jpg' sa stvarnom putanjom do slike */
+    background-image: url('../../assets/images/books.jpg');
     background-size: cover;
+  
   }
-
+  
   .registration-content {
     background-color: #c586839f;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px; /* Prilagodite širinu prozora prema potrebama */
+    width: 300px; 
   }
   
   .registration-content h2 {
@@ -33,7 +34,6 @@
   }
   
   .btn-submit {
-    /* Stilizacija gumba "Registracija" */
     display: block;
     width: 200px;
     margin: 0 auto;
