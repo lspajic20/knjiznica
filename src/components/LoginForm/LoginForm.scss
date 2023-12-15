@@ -4,11 +4,30 @@
   align-items: center;
   height: 100vh;
   background-image: url('../../assets/images/books.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  filter: brightness(90%);
+
+  .register-text{
+    color: #840000;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .register-text a {
+    color: #840000; 
+    text-decoration: underline; 
+    margin-left: 5px; 
+  }
+
+  .register-text a:hover {
+    color: #ffffff; 
+  }
 }
 
 .login-content {
   background-color: #c586839f; 
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -29,14 +48,14 @@
 
 .btn-submit {
   display: block;
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #f0f0f0; 
   color: #333;
-  font-size: 16px;
+  font-size: 13px;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s, color 0.3s;
@@ -52,3 +71,4 @@ h2 {
   color: #840000;
   margin-bottom: 20px;
 }
+

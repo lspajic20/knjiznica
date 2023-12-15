@@ -38,7 +38,7 @@ const Registration = () => {
   }
     console.log(formData);
     //back
-    navigate('/');
+    navigate('/home');
   };
 
   const validatePassword = (password) => {

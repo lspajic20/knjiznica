@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './LoginForm.scss';
+
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -19,9 +20,15 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-   //back
-   navigate('/');
+    const isValidUser = true; 
+
+    if (isValidUser) {
+      console.log(formData);
+    
+      navigate('/home');
+    } else {
+      console.log('Neispravni podaci za prijavu');
+    }
   };
 
   return (
@@ -48,12 +55,15 @@ const LoginForm = () => {
               value={formData.password}
               onChange={handleChange}
               required
-          
               className="form-control"
             />
           </div>
           <div className="button-group">
             <button type="submit" className="btn-submit">Prijava</button>
+            <p className="register-text">
+              Niste registrirani?{' '}
+              <Link to="/registration">Registriraj se</Link>
+            </p>
           </div>
         </form>
       </div>
