@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './LoginForm.scss';
 
-
 const LoginForm = () => {
   const navigate = useNavigate();
 
@@ -20,11 +19,23 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { password } = formData;
+
+    const validatePassword = (password) => {
+      const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+      return passwordRegex.test(password);
+    };
+
+    if (!validatePassword(password)) {
+      console.error('Lozinka nije valjana.');
+      return;
+    }
+
+    // Simulacija provjere korisnika - ovdje umjesto true trebate provjeriti korisničke podatke s backendom
     const isValidUser = true; 
 
     if (isValidUser) {
       console.log(formData);
-    
       navigate('/home');
     } else {
       console.log('Neispravni podaci za prijavu');
@@ -55,6 +66,9 @@ const LoginForm = () => {
               value={formData.password}
               onChange={handleChange}
               required
+              minLength="6"
+              pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
+              title="Lozinka mora sadržavati minimalno 6 znakova, jedno veliko slovo i jedan broj"
               className="form-control"
             />
           </div>

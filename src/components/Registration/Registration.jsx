@@ -24,15 +24,17 @@ const Registration = () => {
     e.preventDefault();
     const { password, confirmPassword } = formData;
 
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+    return passwordRegex.test(password);
+  };
   // Provjera valjanosti lozinke prije slanja podataka
   if (!validatePassword(password)) {
-    // Logika ako lozinka nije valjana
     console.error('Lozinka nije valjana.');
     return;
   }
 
   if (password !== confirmPassword) {
-    // Logika ako lozinke nisu iste
     console.error('Lozinke se ne podudaraju.');
     return;
   }
@@ -41,10 +43,6 @@ const Registration = () => {
     navigate('/home');
   };
 
-  const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
-    return passwordRegex.test(password);
-  };
 
   return (
     <div className="registration-container">
