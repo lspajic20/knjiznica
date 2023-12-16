@@ -17,31 +17,37 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password } = formData;
-
-    const validatePassword = (password) => {
-      const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
-      return passwordRegex.test(password);
-    };
-
-    if (!validatePassword(password)) {
-      console.error('Lozinka nije valjana.');
+    const { email, password } = formData;
+  
+    // Provjera minimalne duljine lozinke
+    if (password.length < 6) {
+      console.error('Lozinka mora sadržavati minimalno 6 znakova.');
       return;
     }
-
-    // Simulacija provjere korisnika - ovdje umjesto true trebate provjeriti korisničke podatke s backendom
-    const isValidUser = true; 
-
-    if (isValidUser) {
-      console.log(formData);
-      navigate('/home');
-    } else {
-      console.log('Neispravni podaci za prijavu');
+  
+    try {
+      const response = await fetch('http://localhost:8080/api/v1/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Uspješna prijava:', responseData);
+        navigate('/home');
+      } else {
+        console.error('Neuspješna prijava. Provjerite podatke.');
+      }
+    } catch (error) {
+      console.error('Greška prilikom slanja zahtjeva:', error);
     }
   };
-
+  
   return (
     <div className="login-container">
       <div className="login-content">
@@ -67,8 +73,7 @@ const LoginForm = () => {
               onChange={handleChange}
               required
               minLength="6"
-              pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
-              title="Lozinka mora sadržavati minimalno 6 znakova, jedno veliko slovo i jedan broj"
+              title="Lozinka mora sadržavati minimalno 6 znakova."
               className="form-control"
             />
           </div>

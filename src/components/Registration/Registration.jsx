@@ -20,30 +20,41 @@ const Registration = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password, confirmPassword } = formData;
-
-  const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
-    return passwordRegex.test(password);
+    const { password, confirmPassword, ...userData } = formData; // Dohvat podataka bez lozinke
+  
+    if (password.length < 6) {
+      console.error('Lozinka mora sadržavati minimalno 6 znakova.');
+      return;
+    }
+  
+    if (password !== confirmPassword) {
+      console.error('Lozinke se ne podudaraju.');
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:8080/api/v1/users/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Uspješno registriran korisnik:', responseData);
+        navigate('/home'); 
+      } else {
+        console.error('Neuspješna registracija. Molimo pokušajte ponovno.');
+      }
+    } catch (error) {
+      console.error('Greška prilikom slanja zahtjeva:', error);
+    }
   };
-  // Provjera valjanosti lozinke prije slanja podataka
-  if (!validatePassword(password)) {
-    console.error('Lozinka nije valjana.');
-    return;
-  }
-
-  if (password !== confirmPassword) {
-    console.error('Lozinke se ne podudaraju.');
-    return;
-  }
-    console.log(formData);
-    //back
-    navigate('/home');
-  };
-
-
+  
   return (
     <div className="registration-container">
       <div className="registration-content">
@@ -91,8 +102,7 @@ const Registration = () => {
               onChange={handleChange}
               required
               minLength="6"
-              pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
-              title="Lozinka mora sadržavati minimalno 6 znakova, jedno veliko slovo i jedan broj"
+              title="Lozinka mora sadržavati minimalno 6 znakova."
               className="form-control"
             />
           </div>
@@ -105,8 +115,7 @@ const Registration = () => {
               onChange={handleChange}
               required
               minLength="6"
-              pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
-              title="Lozinka mora sadržavati minimalno 6 znakova, jedno veliko slovo i jedan broj"
+              title="Lozinka mora sadržavati minimalno 6 znakova."
               className="form-control"
             />
           </div>
